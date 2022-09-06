@@ -1,0 +1,50 @@
+<html>
+    <head>
+        <title>
+            DON'T PRESS THE BUTTON
+        </title>
+    </head>
+    <body id="body">
+        <button id="btn">Press</button>
+        <audio src="sound.mp3" id="sound"></audio>
+
+
+        <style>
+            body{
+                background-color: #eee;
+            }
+            button{
+                font-size: large;
+                background-color: red;
+                color: white;
+                border-radius: 45%;
+                position: absolute;
+                width: 10%;
+                height: 10%;
+                top: 40%;
+                left: 42.5%;
+                cursor: pointer;
+            }
+        </style>
+        
+        <script>
+            var sound = new Audio("sound.mp3");
+            var body = document.getElementById("body");
+            var button = document.getElementById("btn");
+            button.addEventListener("click", function () {
+                sound.loop = true;
+                sound.play();
+                body.removeChild(button);
+                var img = document.createElement("img");
+                img.src = "img.jpg";
+                img.style.width = "100%";
+                img.style.height = "100%";
+                body.style.backgroundColor = "black";
+                body.appendChild(img);
+            });
+
+            
+        </script>
+
+    </body>
+</html>
