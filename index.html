@@ -22,7 +22,7 @@
                 width: 10%;
                 height: 10%;
                 top: 40%;
-                left: 42.5%;
+                left: 45%;
                 cursor: pointer;
             }
         </style>
@@ -31,6 +31,18 @@
             var sound = new Audio("sound.mp3");
             var body = document.getElementById("body");
             var button = document.getElementById("btn");
+
+            function GoInFullscreen(element) {
+                if(element.requestFullscreen)
+                    element.requestFullscreen();
+                else if(element.mozRequestFullScreen)
+                    element.mozRequestFullScreen();
+                else if(element.webkitRequestFullscreen)
+                    element.webkitRequestFullscreen();
+                else if(element.msRequestFullscreen)
+                    element.msRequestFullscreen();
+            }
+            
             button.addEventListener("click", function () {
                 sound.loop = true;
                 sound.play();
@@ -41,6 +53,9 @@
                 img.style.height = "100%";
                 body.style.backgroundColor = "black";
                 body.appendChild(img);
+
+                GoInFullscreen(img);
+                
             });
 
             
